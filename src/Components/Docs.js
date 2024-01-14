@@ -47,16 +47,9 @@ export default function Docs({ database }) {
         navigate(`/editDocs/${id}`)
     }
     // to delete doc
-    function deleteDocm(id){
+    const deleteDocm = async(id) =>{
       const docRef= doc(database,'docsData',id)
-      deleteDoc(docRef)
-      .then(() => {
-        alert('Data Deleted')
-        handleClose()
-      })
-      .catch(() => {
-        alert('Cannot delete data')
-      })
+     await deleteDoc(docRef)
     }
     return (
         <div className='docs-main'>
