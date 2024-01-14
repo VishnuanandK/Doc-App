@@ -4,7 +4,6 @@ import { addDoc, collection, deleteDoc, doc, onSnapshot} from 'firebase/firestor
 import {  useNavigate  } from 'react-router-dom';
 import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import AddIcon from '@mui/icons-material/Add';
 export default function Docs({ database }) {
     const [title, setTitle] = useState('')
     const [open, setOpen] = React.useState(false);
@@ -55,7 +54,7 @@ export default function Docs({ database }) {
         <div className='docs-main'>
             <h1>DOCS APP</h1>
             <button className='add-docs' onClick={handleOpen}>
-            <div className='add-btn'><AddIcon/>Add a Document</div>
+            <div className='add-btn'>Add a Document</div>
             </button>
             <div className='grid-main'>
                 {docsData.map((doc) => {
@@ -63,8 +62,8 @@ export default function Docs({ database }) {
                         <div className='grid-child' onClick={()=>getId(doc.id)}>
                             <div className='headingIcons'><h1>{doc.title}</h1>
                             <div>
-                            <EditNoteOutlinedIcon onClick={()=>getId(doc.id)} />
-                              <DeleteOutlineOutlinedIcon onClick={()=>deleteDocm(doc.id)}/>
+                            <EditNoteOutlinedIcon className='me-2' onClick={()=>getId(doc.id)} />
+                              <DeleteOutlineOutlinedIcon className='ms-4' onClick={()=>deleteDocm(doc.id)}/>
                             </div>
                             
                             </div>
